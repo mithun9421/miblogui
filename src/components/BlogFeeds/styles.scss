@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.blog-feeds {
+	margin: 0px 20px;
+	padding: 15px 50px;
+	background-color: $transparent-white;
+	flex: 1;
+	height: 500px;
+	text-align: left;
+
+	.blogs-body {
+		overflow-y: scroll;
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+		height: 400px;
+	}
+	.blog-body::-webkit-scrollbar {
+		display: none;
+	}
+
+	.feed {
+		border-bottom: 1px solid transparent;
+		margin-bottom: 20px;
+		&::before {
+			content: '•';
+			padding-right: 20px;
+			font-size: 20px;
+		}
+		&:hover {
+			border-bottom: 1px solid $text-white;
+			cursor: pointer;
+		}
+	}
+}

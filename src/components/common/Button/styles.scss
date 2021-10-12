@@ -1,0 +1,13 @@
+@import '../../../styles/variables';
+
+.button-styles {
+	background-color: $accent-color;
+	padding: 20px;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	&:hover {
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,25 @@
+@import '../../styles/variables';
+
+.blog-of-the-week {
+	background-color: rgba(255, 255, 255, 0.07);
+	padding: 40px;
+	margin: 40px 20px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.blog-wrapper {
+		display: flex;
+		.label {
+		}
+		.value {
+			margin-left: 20px;
+			color: $accent-color;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	.getFeat-wrapper {
+	}
+}
