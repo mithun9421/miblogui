@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.create-blog-comp {
+	margin-top: 50px;
+
+	.title-input {
+		font-family: "Poppins";
+		padding-left: 10px;
+		height: 40px;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid $text-white;
+		color: $text-white;
+		width: 500px;
+		outline: none;
+	}
+
+	.w-md-editor {
+		margin-top: 30px;
+		height: 500px !important;
+
+		.w-md-editor-content {
+			height: 470px !important;
+		}
+	}
+	.w-md-editor-show-live {
+		background-color: rgba($color: #ffffff, $alpha: 0.1);
+		color: #ffffff;
+	}
+
+	.w-md-editor-toolbar {
+		padding: 5px 10px 5px 10px;
+		ul > li {
+			button {
+				svg {
+					color: $background-color;
+					height: 20px;
+					width: 20px;
+				}
+			}
+		}
+	}
+
+	.wmde-markdown-color code[class*="language-"] {
+		color: white;
+	}
+
+	.w-md-editor-preview {
+		margin-bottom: 10px;
+		margin-bottom: 10px;
+	}
+
+	.w-md-editor-text,
+	.w-md-editor-content {
+		// background-color: $background-color;
+		p {
+			color: #ffffff;
+		}
+	}
+
+	.token {
+		color: #ffffff !important;
+	}
+
+	.submit-wrapper {
+		margin-top: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+}
