@@ -19,6 +19,7 @@ function App() {
 					<Route exact path="/blog/:blogid" component={BlogWithDescription} />
 					<Route exact path="/aboutme" component={AboutMe} />
 					<Route exact path="/create-blog" component={CreateBlog} />
+					<Route exact path="/create-blog/:blogid" component={CreateBlog} />
 				</Switch>
 			</Router>
 		</div>

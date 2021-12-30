@@ -5,11 +5,11 @@ import './styles.scss';
 const INITIALROUTES = [
 	{
 		label: 'blogs()',
-		value: 'blogs'
+		value: '/blogs'
 	},
 	{
 		label: 'aboutMe()',
-		value: 'aboutme'
+		value: '/aboutme'
 	}
 ];
 

@@ -1,0 +1,81 @@
+@import '../../styles/variables';
+
+.blog-description {
+
+    .wrapper {
+		width: 80%;
+		margin: auto;
+		display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 30px;
+        padding-left: 50px;
+        margin-top: 20px;
+        background-color: $blog-background-color;
+        .blog-title {
+            font-weight: bold;
+        }
+        .blog-content {
+            text-align: left;
+            font-weight: normal;
+            font-size: 16px;
+        }
+        .blog-interaction {
+            display: flex;
+            flex-direction: row;
+            .interaction-button {
+                margin: 20px;
+            }
+            .icon-button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                .comment-icon-style {
+                    color: #AAB8C2;
+                }
+            }
+            .comment-icon-container {
+                margin-top: 33px;
+            }
+            .heart-icon-container {
+                display: flex;
+                flex-direction: column;
+                .likes-value {
+                    margin-top: -20px;
+                }
+            }
+        }
+	}
+    .title-input {
+		font-family: "Poppins";
+		padding-left: 10px;
+		height: 40px;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid $text-white;
+		color: $text-white;
+		width: 500px;
+		outline: none;
+	}
+    .comments {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.068);
+        .button-styles {
+            margin-left: 30px;
+            padding: 10px;
+        }
+        // border-radius: 10px;
+        .comment-content {
+            padding: 10px;
+            background-color: #aab8c21f;
+            border-radius: 2px;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .comment-nodata {
+            margin-top: 20px;
+        }
+    }
+}

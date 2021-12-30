@@ -32,3 +32,34 @@
 		width: 80%;
 	}
 }
+
+.all-blogs {
+	position: relative;
+	.floating-button-wrapper-right {
+		position: fixed;
+		right: 30px;
+		bottom: 30px;
+
+	}
+	.loader-wrapper {
+		margin-top: 50px;
+	}
+}
+
+.about-me {
+	.wrapper {
+		margin: auto;
+		width: 80%;
+		display: flex;
+		flex-direction: row;
+		.content {
+			width: 100%;
+			margin: 30px;
+			padding: 30px;
+			background-color: $blog-background-color;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+}

@@ -8,14 +8,22 @@
 	height: 500px;
 	text-align: left;
 
+	.loader-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		 height: 360px;;
+	}
+
 	.blogs-body {
-		overflow-y: scroll;
+		overflow-y: hidden;
 		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+		// scrollbar-width: none; /* Firefox */
 		height: 400px;
 	}
-	.blog-body::-webkit-scrollbar {
-		display: none;
+
+	.blogs-body:hover {
+		overflow-y: auto;
 	}
 
 	.feed {
@@ -29,6 +37,7 @@
 		&:hover {
 			border-bottom: 1px solid $text-white;
 			cursor: pointer;
+			font-weight: bold;
 		}
 	}
 }
