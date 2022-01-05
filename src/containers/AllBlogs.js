@@ -88,7 +88,7 @@ export class AllBlogs extends React.Component {
 						?.filter((blog) => blog?.postTitle && blog?.post)
 						?.map((blog) => {
 							return (
-								<BlogDescription id={blog?._id} title={blog.postTitle} content={blog.post} />
+								<BlogDescription id={blog?._id} title={blog.postTitle} content={blog.post} likes={blog.likes} comments={blog.comments}/>
 							)
 						})
 				}

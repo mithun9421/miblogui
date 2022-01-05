@@ -10,15 +10,13 @@ app.use(cors());
 mongoose.connect("mongodb+srv://mrbad:mrbad@miblog-cluster.rrw8i.mongodb.net/miblog?retryWrites=true&w=majority");
 
 app.get("/get-blogs", (req, res) => {
-    setTimeout(() => {
-        BlogModel.find({}, (err, result) => {
-            if (err) {
-                res.status(502).json(err);
-            } else {
-                res.status(200).json(result);
-            }
-        })
-    }, 10000)
+    BlogModel.find({}, (err, result) => {
+        if (err) {
+            res.status(502).json(err);
+        } else {
+            res.status(200).json(result);
+        }
+    })
 })
 
 app.get("/get-blog-by-id/:id", async (req, res) => {
@@ -29,7 +27,6 @@ app.get("/get-blog-by-id/:id", async (req, res) => {
 })
 
 app.get("/get-shortblogs", (req, res) => {
-    setTimeout(() => {
     BlogModel.find({}, { postTitle: 1 }, (err, result) => {
         if (err) {
             res.status(502).json(err);
@@ -37,7 +34,6 @@ app.get("/get-shortblogs", (req, res) => {
             res.status(200).json(result);
         }
     })
-}, 10000)
 })
 
 app.post("/add-blog/:id", async (req, res) => {

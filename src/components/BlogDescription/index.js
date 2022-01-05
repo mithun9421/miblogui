@@ -36,6 +36,7 @@ export default function BlogDescription({
 
     const handleCommentSubmit = () => {
         // console.log( [commentInput, ...comments])
+        console.log("Comment ", [commentInput, ...commentList]);
         setcommentList([commentInput, ...commentList]);
         setCommentInput("")
         if(commentInput != "") {
