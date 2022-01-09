@@ -22,7 +22,7 @@ export default function BlogDescription({
     const handleHeartClick = () => {
         setHeartClick(true);
         setLikes( likesCount + 1);
-        axios.post("http://localhost:3001/update-likes",{
+        axios.post("https://random-blogger.herokuapp.com/api/update-likes",{
             likes : likes + 1,
             id : id,
 		})
@@ -40,7 +40,7 @@ export default function BlogDescription({
         setcommentList([commentInput, ...commentList]);
         setCommentInput("")
         if(commentInput != "") {
-            axios.post("http://localhost:3001/update-comments", {
+            axios.post("https://random-blogger.herokuapp.com/api/update-comments", {
                 comments : [commentInput, ...comments],
                 id
             })

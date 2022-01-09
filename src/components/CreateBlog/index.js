@@ -18,7 +18,7 @@ export default function CreateBlog() {
 	}, [])
 
 	const getBlogById = (blogid) => {
-		axios.get("http://localhost:3001/get-blog-by-id/" + blogid)
+		axios.get("https://random-blogger.herokuapp.com/api/get-blog-by-id/" + blogid)
 		.then((response) => {
 			setTitle(response.data?.postTitle)
 			setContent(response.data?.post)
@@ -37,7 +37,7 @@ export default function CreateBlog() {
 			inputObject.likes = 0;
 			inputObject.comments = [];
 		}
-		axios.post("http://localhost:3001/add-blog/" + (blogid ? blogid : "-999"), {...inputObject})
+		axios.post("https://random-blogger.herokuapp.com/api/add-blog/" + (blogid ? blogid : "-999"), {...inputObject})
 		.then((response) => {
 			console.log("Post successful", response)
 			history.push(`/`);   

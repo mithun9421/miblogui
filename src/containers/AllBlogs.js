@@ -50,7 +50,7 @@ export class AllBlogs extends React.Component {
 	}
 
 	getAllBlogs = () => {
-		axios.get("http://localhost:3001/get-blogs")
+		axios.get("https://random-blogger.herokuapp.com/api/get-blogs")
 			.then((response) => {
 				this.setState({
 					blogs: response.data,

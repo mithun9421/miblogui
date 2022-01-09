@@ -17,7 +17,7 @@ const BlogWithDescription = () => {
 	}, [])
 
 	const getPostById = (id) => {
-		axios.get("http://localhost:3001/get-blog-by-id/" + id)
+		axios.get("https://random-blogger.herokuapp.com/api/get-blog-by-id/" + id)
 			.then((response) => {
 				console.log("response getpostbyid", response)
 				setBlogLoading(false);

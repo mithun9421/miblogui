@@ -15,7 +15,7 @@ export default function BlogFeeds() {
 	}, []);
 
 	const getBlogs = () => {
-		axios.get("http://localhost:3001/get-shortblogs")
+		axios.get("https://random-blogger.herokuapp.com/api/get-shortblogs")
 			.then((response) => {
 				setFeeds(response.data);
 				setFeedsLoading(false);

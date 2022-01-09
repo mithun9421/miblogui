@@ -3,13 +3,21 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require("cors");
 const BlogModel = require("./models/blogs");
+const API_PREFIX = "/api";
+const path = require('path');
 
 app.use(express.json());
 app.use(cors());
 
 mongoose.connect("mongodb+srv://mrbad:mrbad@miblog-cluster.rrw8i.mongodb.net/miblog?retryWrites=true&w=majority");
 
-app.get("/get-blogs", (req, res) => {
+app.get("/health-check", async (req, res) => {
+    res.json({
+        status : "OK"
+    })
+})
+
+app.get(API_PREFIX + "/get-blogs", (req, res) => {
     BlogModel.find({}, (err, result) => {
         if (err) {
             res.status(502).json(err);
@@ -19,14 +27,14 @@ app.get("/get-blogs", (req, res) => {
     })
 })
 
-app.get("/get-blog-by-id/:id", async (req, res) => {
+app.get(API_PREFIX + "/get-blog-by-id/:id", async (req, res) => {
     const blogId = req.params.id;
     let result = await BlogModel.findById(blogId);
     console.log(result)
     res.json(result)
 })
 
-app.get("/get-shortblogs", (req, res) => {
+app.get(API_PREFIX + "/get-shortblogs", (req, res) => {
     BlogModel.find({}, { postTitle: 1 }, (err, result) => {
         if (err) {
             res.status(502).json(err);
@@ -36,7 +44,7 @@ app.get("/get-shortblogs", (req, res) => {
     })
 })
 
-app.post("/add-blog/:id", async (req, res) => {
+app.post(API_PREFIX + "/add-blog/:id", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     const blogId = req.params.id;
     if (blogId == "-999") {
@@ -62,7 +70,7 @@ app.post("/add-blog/:id", async (req, res) => {
 })
 
 
-app.post("/update-likes", async (req, res) => {
+app.post(API_PREFIX + "/update-likes", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     const blog = {
         ...req.body,
@@ -76,7 +84,7 @@ app.post("/update-likes", async (req, res) => {
     res.json(output)
 })
 
-app.post("/update-comments", async (req, res) => {
+app.post(API_PREFIX + "/update-comments", async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     const blog = {
         ...req.body,
@@ -89,8 +97,8 @@ app.post("/update-comments", async (req, res) => {
     res.json(output)
 })
 
-const port = 3001;
-app.listen(3001, () => {
-    console.log("Server run at ", 3001);
+const port = process.env.PORT || 3001;
+app.listen(port, () => {
+    console.log("Server run at ", port);
 })
 
