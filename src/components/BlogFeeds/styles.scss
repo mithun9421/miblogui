@@ -20,6 +20,13 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		// scrollbar-width: none; /* Firefox */
 		height: 400px;
+		
+		.no-feeds {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
 	}
 
 	.blogs-body:hover {

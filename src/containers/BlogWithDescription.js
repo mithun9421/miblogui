@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import BlogDescription from '../components/BlogDescription';
 import Loader from '../components/common/Loader';
+import {DEFAULT_CONFIGS} from '../utls/constants';
 
 const BlogWithDescription = () => {
 	const [blog, setBlog] = useState({})
@@ -17,7 +18,7 @@ const BlogWithDescription = () => {
 	}, [])
 
 	const getPostById = (id) => {
-		axios.get("https://random-blogger.herokuapp.com/api/get-blog-by-id/" + id)
+		axios.get(DEFAULT_CONFIGS.API_URL + "/api/get-blog-by-id/" + id)
 			.then((response) => {
 				console.log("response getpostbyid", response)
 				setBlogLoading(false);

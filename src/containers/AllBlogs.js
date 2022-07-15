@@ -4,6 +4,7 @@ import { Transition } from 'react-transition-group';
 import BlogDescription from '../components/BlogDescription';
 import Button from '../components/common/Button';
 import Loader from '../components/common/Loader';
+import {DEFAULT_CONFIGS} from '../utls/constants';
 
 const duration = 300;
 
@@ -50,7 +51,7 @@ export class AllBlogs extends React.Component {
 	}
 
 	getAllBlogs = () => {
-		axios.get("https://random-blogger.herokuapp.com/api/get-blogs")
+		axios.get(DEFAULT_CONFIGS.API_URL + "/api/get-blogs")
 			.then((response) => {
 				this.setState({
 					blogs: response.data,

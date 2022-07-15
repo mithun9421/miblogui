@@ -25,7 +25,7 @@ const BlogSchema = new mongoose.Schema({
         type : Number,
     },
     comments : {
-        type : Array
+        type : [mongoose.Schema.Types.Mixed]
     }
 });
 

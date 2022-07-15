@@ -6,6 +6,7 @@ import Button from '../common/Button';
 import axios from 'axios';
 import './styles.scss';
 import { useEffect } from 'react/cjs/react.development';
+import { DEFAULT_CONFIGS } from '../../utls/constants'
 
 export default function CreateBlog() {
 	const [ title, setTitle ] = useState('');
@@ -18,7 +19,7 @@ export default function CreateBlog() {
 	}, [])
 
 	const getBlogById = (blogid) => {
-		axios.get("https://random-blogger.herokuapp.com/api/get-blog-by-id/" + blogid)
+		axios.get(DEFAULT_CONFIGS.API_URL + "/api/get-blog-by-id/" + blogid)
 		.then((response) => {
 			setTitle(response.data?.postTitle)
 			setContent(response.data?.post)
@@ -37,7 +38,7 @@ export default function CreateBlog() {
 			inputObject.likes = 0;
 			inputObject.comments = [];
 		}
-		axios.post("https://random-blogger.herokuapp.com/api/add-blog/" + (blogid ? blogid : "-999"), {...inputObject})
+		axios.post(DEFAULT_CONFIGS.API_URL + "/api/add-blog/" + (blogid ? blogid : "-999"), {...inputObject})
 		.then((response) => {
 			console.log("Post successful", response)
 			history.push(`/`);   

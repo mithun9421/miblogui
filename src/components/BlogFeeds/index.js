@@ -3,19 +3,20 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import Loader from '../common/Loader'
 import './styles.scss';
+import {DEFAULT_CONFIGS} from '../../utls/constants';
 const INITIALPOSTS = [];
 
 export default function BlogFeeds() {
 	const [feedsLoading, setFeedsLoading] = useState(true);
 	const [feeds, setFeeds] = useState(INITIALPOSTS);
 	const history = useHistory();
-
+	console.log("React API URL ", process.env.REACT_APP_API_URL)
 	useEffect(() => {
 		getBlogs();
 	}, []);
 
 	const getBlogs = () => {
-		axios.get("https://random-blogger.herokuapp.com/api/get-shortblogs")
+		axios.get(DEFAULT_CONFIGS.API_URL + "/api/get-shortblogs")
 			.then((response) => {
 				setFeeds(response.data);
 				setFeedsLoading(false);
@@ -55,8 +56,6 @@ export default function BlogFeeds() {
 							)
 						})
 				}
-			</div>
-			<div className='loader-wrapper'>
 				{
 					!feedsLoading &&
 					feeds?.length == 0 &&

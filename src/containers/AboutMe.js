@@ -1,16 +1,17 @@
 import React from 'react';
-import ComingSoon from '../images/coding.gif'
+import AboutMe from '../components/AboutMe'
 
-export class AboutMe extends React.Component {
+export class AboutMeContainer extends React.Component {
 	render() {
 		return <div className='about-me'>
 			<div className='wrapper'>
-				<div className='content'>
-					<img src={ComingSoon} />
-				</div>
+				<AboutMe />
 			</div>
 		</div>;
 	}
 }
 
-export default AboutMe;
+export default AboutMeContainer;
+
+
+// #BC4123

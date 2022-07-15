@@ -5,12 +5,13 @@ import axios from 'axios';
 import Comment from '../../images/comment.svg';
 import './style.scss';
 import Button from '../common/Button';
+import {DEFAULT_CONFIGS} from '../../utls/constants';
 
 export default function BlogDescription({
     id = "123",
     title = "Title goes here...",
     content = "Content goes here...",
-    likes, 
+    likes,
     comments = []
 }) {
     const [likesCount, setLikes] = useState(likes ? likes : 0)
@@ -21,35 +22,38 @@ export default function BlogDescription({
 
     const handleHeartClick = () => {
         setHeartClick(true);
-        setLikes( likesCount + 1);
-        axios.post("https://random-blogger.herokuapp.com/api/update-likes",{
-            likes : likes + 1,
-            id : id,
-		})
-		.then((response) => {
-			console.log("Post successful", response)
-		})
-		.catch((err) => {
-			console.log("error occured")
-		})
+        setLikes(likesCount + 1);
+        axios.post(DEFAULT_CONFIGS.API_URL + "/api/update-likes", {
+            likes: likes + 1,
+            id: id,
+        })
+            .then((response) => {
+                console.log("Post successful", response)
+            })
+            .catch((err) => {
+                console.log("error occured")
+            })
     }
 
     const handleCommentSubmit = () => {
-        // console.log( [commentInput, ...comments])
-        console.log("Comment ", [commentInput, ...commentList]);
-        setcommentList([commentInput, ...commentList]);
+        let commentWithDate = {
+            comment: commentInput,
+            createdDate: (new Date()).getTime()
+        }
+        console.log("Comment ", [commentWithDate, ...commentList]);
+        setcommentList([commentWithDate, ...commentList]);
         setCommentInput("")
-        if(commentInput != "") {
-            axios.post("https://random-blogger.herokuapp.com/api/update-comments", {
-                comments : [commentInput, ...comments],
+        if (commentInput != "") {
+            axios.post(DEFAULT_CONFIGS.API_URL + "/api/update-comments", {
+                comments: [commentWithDate, ...comments],
                 id
             })
-            .then((response) => {
-                console.log("Post successfull", response)
-            })
-            .catch((err) => {
-                console.log("Error occured", err)
-            })
+                .then((response) => {
+                    console.log("Post successfull", response)
+                })
+                .catch((err) => {
+                    console.log("Error occured", err)
+                })
         }
     }
 
@@ -74,20 +78,26 @@ export default function BlogDescription({
                     </div>
                 </div>
                 {
-                    commentClicked && 
+                    commentClicked &&
                     <div className='comments'>
-                        <input type={"text"} value={commentInput} onChange={(e) => {setCommentInput(e.target.value)}} className='title-input' placeholder='Please add your views on the blog'/>
-                        <Button text={"Submit"} handleClick={handleCommentSubmit}/>
+                        <input type={"text"} value={commentInput} onChange={(e) => { setCommentInput(e.target.value) }} className='title-input' placeholder={`Type to add in your views`} />
+                        <Button text={"Submit"} handleClick={handleCommentSubmit} />
                         {
                             commentList?.length == 0 &&
                             <div className="comment-nodata">No comments yet!</div>
                         }
-                             {
-                            commentList?.map((comment) => {
+                        {
+                            commentList?.map(({ comment, createdDate }) => {
                                 return (
-                                    <div className='comment-content'>{comment}</div>
+                                    <div className='comment-content-wrap'>
+                                        <div className='comment-content'>{comment}</div>
+                                        {
+                                            createdDate &&
+                                            <div className='comment-create-date'>{new Date(createdDate).toString()}</div>
+                                        }
+                                    </div>
                                 )
-                            }) 
+                            })
                         }
                     </div>
                 }

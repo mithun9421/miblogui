@@ -3,13 +3,14 @@ const app = express();
 const mongoose = require('mongoose');
 const cors = require("cors");
 const BlogModel = require("./models/blogs");
+const AppModel = require("./models/app");
 const API_PREFIX = "/api";
 const path = require('path');
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://mrbad:mrbad@miblog-cluster.rrw8i.mongodb.net/miblog?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://miblog-dev:miblog-dev@cluster0.rrw8i.mongodb.net/?retryWrites=true&w=majority");
 
 app.get("/health-check", async (req, res) => {
     res.json({
@@ -37,6 +38,16 @@ app.get(API_PREFIX + "/get-blog-by-id/:id", async (req, res) => {
 app.get(API_PREFIX + "/get-shortblogs", (req, res) => {
     BlogModel.find({}, { postTitle: 1 }, (err, result) => {
         if (err) {
+            res.status(502).json(err);
+        } else {
+            res.status(200).json(result);
+        }
+    })
+})
+
+app.get(API_PREFIX + "/get-applications", (req, res) => {
+    AppModel.find({}, (err, result) => {
+        if(err) {
             res.status(502).json(err);
         } else {
             res.status(200).json(result);

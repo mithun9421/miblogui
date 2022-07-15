@@ -11,7 +11,7 @@ export default function BlogOfTheWeek() {
 			<div className="blog-wrapper">
 				<h3 className="label">Blog of the week</h3>
 				<h3 className="value">
-					<a href="https://www.google.com">www.google.com</a>
+					<a href="https://wordle-hack-ui.herokuapp.com/" target="_blank">Wordle Hack!</a>
 				</h3>
 			</div>
 			<div className="getFeat-wrapper">

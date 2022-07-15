@@ -1,0 +1,33 @@
+.about-me {
+    margin-top: 30px;
+    display: flex;
+    .profile-pic {
+        width: 500px;
+        height: 400px;
+        .pic {
+            width: 100%;
+        }
+    }
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 30px;
+        justify-content: flex-start;
+        .name {
+            margin-bottom: 0px;
+        }
+        .designation {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            opacity: 0.7;
+            font-weight: normal;
+        }
+        .slogan {
+            margin-top: 5px;
+            font-weight: normal;
+            opacity: 0.7;
+        }
+    }
+
+}
