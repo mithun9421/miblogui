@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MDEditor from '@uiw/react-md-editor';
-import Heart from "react-animated-heart";
+import Heart from '../common/Heart';
 import axios from 'axios';
 import Comment from '../../images/comment.svg';
 import './style.scss';
