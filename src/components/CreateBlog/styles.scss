@@ -23,6 +23,7 @@
 			height: 470px !important;
 		}
 	}
+
 	.w-md-editor-show-live {
 		background-color: rgba($color: #ffffff, $alpha: 0.1);
 		color: #ffffff;
@@ -30,10 +31,11 @@
 
 	.w-md-editor-toolbar {
 		padding: 5px 10px 5px 10px;
-		ul > li {
+
+		ul>li {
 			button {
 				svg {
-					color: $background-color;
+					color: $text-white;
 					height: 20px;
 					width: 20px;
 				}
@@ -52,6 +54,7 @@
 
 	.w-md-editor-text,
 	.w-md-editor-content {
+
 		// background-color: $background-color;
 		p {
 			color: #ffffff;

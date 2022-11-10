@@ -8,18 +8,21 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
 	.blog-wrapper {
 		display: flex;
-		.label {
-		}
+
+		.label {}
+
 		.value {
 			margin-left: 20px;
 			color: $accent-color;
+
 			&:hover {
 				text-decoration: underline;
 			}
 		}
 	}
-	.getFeat-wrapper {
-	}
+
+	.getFeat-wrapper {}
 }
